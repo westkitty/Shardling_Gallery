@@ -1,0 +1,1 @@
+{"name":"shardling-gallery","version":"1.0.0","private":true,"type":"module","scripts":{"build":"node tools/build.mjs","test":"node tests/structure.mjs"},"dependencies":{"three":"0.187.0"},"devDependencies":{"esbuild":"0.25.12"},"engines":{"node":">=22"}}

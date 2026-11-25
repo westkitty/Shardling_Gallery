@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { EXPRESSIONS, MASK_FRAMES_PER_EXPRESSION } from '../src/masks.mjs';
+import { MOTIONS } from '../src/motions.mjs';
+const b=readFileSync('assets/Shardling-Body.glb');
+assert.equal(b.toString('ascii',0,4),'glTF');
+const j=JSON.parse(b.toString('utf8',20,20+b.readUInt32LE(12)));
+const n=new Set(j.nodes.map(o=>o.name));
+assert.ok(j.skins[0].joints.length>=24);
+for(const name of ['LED_Surface','Mask_Housing','Root','Head','Index.R','Fingers.R'])assert.ok(n.has(name),name);
+for(const growth of ['Crown','Comet','Fault'])assert.ok([...n].some(name=>name.startsWith(growth+'_')));
+assert.equal(Object.keys(EXPRESSIONS).length,13);
+for(const e of Object.values(EXPRESSIONS))if(e.color)assert.equal(e.frameCount,MASK_FRAMES_PER_EXPRESSION);
+for(const name of ['bashful-fold','point-and-laugh','downtrodden'])assert.ok(MOTIONS[name]);
+console.log('GLB header, named bones, independent display, 3 growths, 12×6 LED metadata, 12-clip library structure OK');

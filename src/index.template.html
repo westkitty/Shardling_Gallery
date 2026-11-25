@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark"><title>Shardling Gallery · Starsilk</title><style>/*__STYLE__*/</style></head>
+<body>
+<a class="skip" href="#stage">Skip to stage</a>
+<main>
+ <header class="mast"><div><div class="eyebrow"><i></i> STARSILK / CHARACTER LAB</div><h1>Shardling Gallery</h1><p>One rig. A thousand ways to mean well.</p></div>
+ <div class="edition"><span>●</span> LIVE 3D <b>RIG STUDY / 01</b></div></header>
+ <div class="layout">
+ <section id="stage" class="panel stage" aria-label="3D preview">
+ <div class="sectionhead"><div><div class="eyebrow">01 / THE STAGE</div><h2>Look development</h2></div><label class="check"><input id="pair" type="checkbox" checked> Compare A + B</label></div>
+ <div id="viewport"><div class="viewport-mark">OBSIDIAN / AZURE</div><div id="stage-labels"><span>A <i id="stage-tag-0"></i></span><span>B <i id="stage-tag-1"></i></span></div></div>
+ <div class="toolbar"><div role="group" aria-label="Camera views"><button data-view="front">Front</button><button data-view="angle">¾</button><button data-view="profile">Side</button><button data-view="back">Back</button><button data-view="detail">Mask</button></div><button id="play">Pause stage</button></div>
+ <p class="hint">Drag to orbit · Pinch or scroll to zoom</p>
+ </section>
+ <aside class="panel controls" aria-label="Mix and match">
+ <div class="eyebrow">02 / PERFORMANCE</div><h2>Mix &amp; match</h2>
+ <div class="switch" role="group" aria-label="Select actor"><button id="actor-0" aria-pressed="true">Shardling A</button><button id="actor-1" aria-pressed="false">Shardling B</button></div>
+ <label class="field">LED emotion <select id="emotion"></select></label>
+ <label class="field">Body motion <select id="motion"></select></label>
+ <p id="pose-desc" class="hint"></p>
+ <label class="field">Crystal growth <select id="growth"></select></label>
+ <div class="checks"><label class="check"><input type="checkbox" id="animate-mask" checked> LED flicker</label><label class="check"><input type="checkbox" id="repeat" checked> Loop motion</label><label class="check"><input type="checkbox" id="wisps" checked> Ink wisps</label></div>
+ <div class="rates"><label>LED rate <input type="range" id="mask-rate" min=".25" max="3" step=".05"></label><label>Motion rate <input type="range" id="motion-rate" min=".25" max="3" step=".05"></label></div>
+ <label class="scrub">Scrub motion <input type="range" id="scrub" min="0" max="1" step=".002" value="0"></label>
+ <button id="replay" class="accent">Replay selected motion</button>
+ <details open><summary>Stage lighting</summary>
+ <label class="field">Lighting look <select id="light-look"><option value="">Custom</option></select></label>
+ <div class="swatches"><label>Key <input id="light-key" type="color"></label><label>Rim <input id="light-rim" type="color"></label><label>Stage <input id="light-bg" type="color"></label></div>
+ <div class="light-sliders"><label>Key strength <input type="range" id="light-power" min="0" max="8" step=".05"></label><label>Fill strength <input type="range" id="light-fill" min="0" max="6" step=".05"></label><label>Key angle <input type="range" id="light-az" min="-180" max="180" step="1"></label></div>
+ </details>
+ </aside>
+ </div>
+ <section class="panel library">
+  <div class="sectionhead"><div><div class="eyebrow">03 / PRESET LIBRARY</div><h2>Ten ways to come alive</h2></div><p>Tap a performance to load it onto the selected actor. All layers stay editable.</p></div>
+  <div id="presets"></div>
+ </section>
+ <section class="panel exports"><div><div class="eyebrow">04 / HANDOFF</div><h2>Take the setup with you</h2><p>JSON stores both actors, lighting and camera. The GLB contains the selected growth, skinned body, 12 skeletal clips, and a blank mask. The source kit includes the runtime LED art.</p></div>
+  <div class="exportbuttons"><button class="accent" id="export">Export setup JSON</button><input class="visually-hidden" id="import" type="file" accept=".json,application/json"><label class="fakebutton" for="import">Import setup</label><button id="export-glb">Download rig GLB</button><button id="export-atlas">LED atlas PNG</button><button id="export-png">Snapshot PNG</button></div></section>
+ <div id="status" role="status">Loading the local 3D stage…</div>
+ <footer><span>STARSILK · SHARDLING STUDY</span><span>OFFLINE VIEWER / NO ACCOUNT REQUIRED</span></footer>
+</main>
+<script>window.addEventListener("unhandledrejection",e=>{document.getElementById("status").textContent="Could not start the preview. Open the downloaded file in a browser with WebGL 2.";});</script>
+<script type="module">/*__SCRIPT__*/</script></body></html>
